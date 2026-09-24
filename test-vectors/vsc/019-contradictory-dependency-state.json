@@ -1,0 +1,85 @@
+{
+  "vector_id": "VSC-019",
+  "description": "A claim is rejected when a required dependency is simultaneously represented as valid and invalid.",
+  "expected_result": "INVALID",
+  "failure_classification": "CONTRADICTORY_DEPENDENCY_STATE",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-019",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-019",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-019"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-019",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "abababababababababababababababababababababababababababababababab"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-019",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-019",
+      "obligations": [
+        {
+          "obligation_id": "obligation-019-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "dependencies": [
+      {
+        "dependency_id": "validator-019",
+        "dependency_type": "validated_by",
+        "status": "VALID",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd"
+        }
+      },
+      {
+        "dependency_id": "validator-019",
+        "dependency_type": "validated_by",
+        "status": "INVALID",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "efefefefefefefefefefefefefefefefefefefefefefefefefefefefefefefef"
+        }
+      }
+    ],
+    "issuer": {
+      "issuer_id": "issuer-test-019"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-019",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
