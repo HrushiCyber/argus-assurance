@@ -1,0 +1,65 @@
+{
+  "vector_id": "VSC-018",
+  "description": "A verifier rejects a claim when its declared canonicalization method is unsupported.",
+  "expected_result": "UNSUPPORTED",
+  "failure_classification": "UNSUPPORTED_CANONICALIZATION",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-018",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-018",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-018"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-018",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-018",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-018",
+      "obligations": [
+        {
+          "obligation_id": "obligation-018-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-018"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "ARGUS-UNSUPPORTED-CANONICALIZATION",
+      "key_id": "test-key-018",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
