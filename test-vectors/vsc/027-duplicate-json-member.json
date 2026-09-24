@@ -1,0 +1,11 @@
+{
+  "vector_id": "VSC-027",
+  "description": "A verifier rejects a claim containing duplicate JSON object members because duplicate members create canonicalization ambiguity.",
+  "expected_result": "INVALID",
+  "failure_classification": "DUPLICATE_JSON_MEMBER",
+  "raw_claim": "{\"schema_version\":\"vsc-1.0\",\"claim_id\":\"claim-027\",\"claim_id\":\"claim-027-forged\",\"claim_type\":\"security_property\"}",
+  "verification_context": {
+    "canonicalization": "JCS-RFC8785",
+    "duplicate_member_policy": "REJECT"
+  }
+}
