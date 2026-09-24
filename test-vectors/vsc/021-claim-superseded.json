@@ -1,0 +1,72 @@
+{
+  "vector_id": "VSC-021",
+  "description": "A previously active claim is no longer current because an authorized newer claim explicitly supersedes it.",
+  "expected_result": "SUPERSEDED",
+  "failure_classification": "CLAIM_SUPERSEDED",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-021",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-021",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-021"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-021",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "1313131313131313131313131313131313131313131313131313131313131313"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-021",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-021",
+      "obligations": [
+        {
+          "obligation_id": "obligation-021-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-021"
+    },
+    "supersession": {
+      "superseded_by": "claim-021-v2",
+      "superseded_at": "2026-09-24T10:00:00Z"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-021",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "evaluated_at": "2026-09-24T12:00:00Z"
+  }
+}
