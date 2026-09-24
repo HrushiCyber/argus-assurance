@@ -1,0 +1,65 @@
+{
+  "vector_id": "VSC-013",
+  "description": "A verifier rejects a claim whose proof object is structurally malformed and cannot be evaluated.",
+  "expected_result": "INVALID",
+  "failure_classification": "MALFORMED_PROOF",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-013",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-013",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-013"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-013",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "4444444444444444444444444444444444444444444444444444444444444444"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-013",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-013",
+      "obligations": [
+        {
+          "obligation_id": "obligation-013-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": "true"
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-013"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-013",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
