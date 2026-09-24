@@ -1,0 +1,141 @@
+{
+  "vector_id": "VSC-TV-004",
+  "description": "Schema-valid VSC with a proof obligation missing from the verification context",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-004",
+    "claim_type": "software-integrity",
+    "subject": {
+      "subject_id": "sha256:example-subject-004",
+      "subject_type": "software_artifact",
+      "identity_method": "artifact_digest"
+    },
+    "property": {
+      "property_id": "artifact-integrity",
+      "description": "The referenced software artifact matches the declared artifact digest",
+      "profile": "software-integrity",
+      "version": "1.0"
+    },
+    "scope": {
+      "included": [
+        "software-artifact:example-004"
+      ],
+      "excluded": [],
+      "environment": "test"
+    },
+    "assumptions": [
+      {
+        "assumption_id": "A-004",
+        "description": "The artifact identity mechanism is available and trustworthy",
+        "status": "satisfied"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "E-004",
+        "evidence_type": "software_provenance",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "provenance_digest": {
+          "algorithm": "sha-256",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "source": "test-provenance-source",
+        "observed_at": "2026-09-24T00:00:00Z"
+      }
+    ],
+    "validation": {
+      "validation_id": "V-004",
+      "method": "artifact-digest-validation",
+      "method_version": "1.0",
+      "performed_at": "2026-09-24T00:00:00Z",
+      "result": "satisfied",
+      "verifier_reference": "test-verifier-004"
+    },
+    "proof": {
+      "proof_id": "P-004",
+      "obligations": [
+        {
+          "obligation_id": "PO-004",
+          "description": "The observed artifact digest matches the declared artifact identity",
+          "status": "satisfied",
+          "evidence_refs": [
+            "E-004"
+          ]
+        },
+        {
+          "obligation_id": "PO-005",
+          "description": "The artifact provenance originates from an authorized provenance source",
+          "status": "unknown",
+          "evidence_refs": []
+        }
+      ],
+      "falsification": {
+        "status": "passed",
+        "method": "artifact-provenance-mutation-test",
+        "tested_at": "2026-09-24T00:00:00Z",
+        "conditions": [
+          "Unauthorized provenance must not satisfy the provenance obligation"
+        ]
+      }
+    },
+    "validity": {
+      "issued_at": "2026-09-24T00:00:00Z",
+      "expires_at": "2026-09-25T00:00:00Z",
+      "freshness_seconds": 86400
+    },
+    "dependencies": [
+      {
+        "dependency_id": "artifact-validator-004",
+        "dependency_type": "validation_method",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        },
+        "version": "1.0"
+      }
+    ],
+    "issuer": {
+      "issuer_id": "test-issuer-004",
+      "trust_domain": "argus-test-domain"
+    },
+    "trust": {
+      "trust_anchor_id": "test-anchor-004",
+      "policy_id": "test-policy-004"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "key_id": "test-key-004",
+      "canonicalization": "JCS-RFC8785",
+      "value": "TEST-SIGNATURE-004"
+    },
+    "metadata": {
+      "test_vector": true,
+      "purpose": "negative-verification"
+    }
+  },
+  "verification_policy": {
+    "policy_id": "test-policy-004",
+    "require_valid_signature": true,
+    "require_freshness": true,
+    "require_all_proof_obligations": true,
+    "unknown_obligation_is_failure": true
+  },
+  "verification_context": {
+    "evaluated_at": "2026-09-24T00:00:00Z",
+    "signature_status": "valid",
+    "trust_status": "trusted",
+    "subject_binding": "valid",
+    "evidence_integrity": "valid",
+    "proof_obligations": {
+      "PO-004": "satisfied",
+      "PO-005": "unknown"
+    }
+  },
+  "expected_result": {
+    "status": "INSUFFICIENT_CONTEXT",
+    "reason": "REQUIRED_PROOF_OBLIGATION_UNKNOWN"
+  }
+}
