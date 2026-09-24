@@ -1,0 +1,69 @@
+{
+  "vector_id": "VSC-014",
+  "description": "A previously valid claim is rejected when replayed outside its permitted freshness boundary.",
+  "expected_result": "EXPIRED",
+  "failure_classification": "STALE_ASSURANCE_REPLAY",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-014",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-014",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-014"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-014",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "5555555555555555555555555555555555555555555555555555555555555555"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-014",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-20T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-014",
+      "obligations": [
+        {
+          "obligation_id": "obligation-014-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-20T10:00:00Z",
+      "expires_at": "2026-09-21T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-014"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-014",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "evaluated_at": "2026-09-23T10:00:00Z",
+    "required_freshness_seconds": 86400
+  }
+}
