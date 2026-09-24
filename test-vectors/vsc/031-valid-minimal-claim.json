@@ -1,0 +1,64 @@
+{
+  "vector_id": "VSC-031",
+  "description": "Minimal structurally valid VSC claim for positive-path conformance testing.",
+  "expected_result": "VERIFIED",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-031",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-031",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-031"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-031",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "3131313131313131313131313131313131313131313131313131313131313131"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-031",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-24T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-031",
+      "obligations": [
+        {
+          "obligation_id": "obligation-031-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-24T10:00:00Z",
+      "expires_at": "2026-10-24T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-031"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-031",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
