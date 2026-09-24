@@ -1,0 +1,75 @@
+{
+  "vector_id": "VSC-022",
+  "description": "A claim is rejected when the signing key used by its issuer has been revoked.",
+  "expected_result": "REVOKED",
+  "failure_classification": "SIGNING_KEY_REVOKED",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-022",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-022",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-022"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-022",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "2323232323232323232323232323232323232323232323232323232323232323"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-022",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-022",
+      "obligations": [
+        {
+          "obligation_id": "obligation-022-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-022",
+      "key_id": "revoked-key-022"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "revoked-key-022",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "revoked_keys": [
+      {
+        "key_id": "revoked-key-022",
+        "revoked_at": "2026-09-24T10:00:00Z",
+        "reason": "key_compromise"
+      }
+    ]
+  }
+}
