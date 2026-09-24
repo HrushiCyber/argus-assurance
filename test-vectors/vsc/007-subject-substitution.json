@@ -1,0 +1,71 @@
+{
+  "vector_id": "VSC-007",
+  "description": "A claim is rejected when the subject referenced by the verification context does not match the subject bound to the claim.",
+  "expected_result": "INVALID",
+  "failure_classification": "SUBJECT_BINDING_FAILURE",
+  "claim": {
+    "claim_id": "claim-007",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-007-A",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-007-A"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-007",
+        "evidence_type": "runtime_telemetry",
+        "subject_id": "workload-007-A",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-007",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-007",
+      "obligations": [
+        {
+          "obligation_id": "obligation-007-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-007"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-007",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "subject": {
+      "subject_id": "workload-007-B",
+      "subject_type": "cloud_workload"
+    }
+  }
+}
