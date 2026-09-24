@@ -1,0 +1,124 @@
+{
+  "vector_id": "VSC-TV-001",
+  "description": "Schema-valid VSC with a deliberately invalid Ed25519 signature",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-001",
+    "claim_type": "software-integrity",
+    "subject": {
+      "subject_id": "sha256:example-subject-001",
+      "subject_type": "software_artifact",
+      "identity_method": "artifact_digest"
+    },
+    "property": {
+      "property_id": "artifact-integrity",
+      "description": "The referenced software artifact matches the declared artifact digest",
+      "profile": "software-integrity",
+      "version": "1.0"
+    },
+    "scope": {
+      "included": [
+        "software-artifact:example-001"
+      ],
+      "excluded": [],
+      "environment": "test"
+    },
+    "assumptions": [
+      {
+        "assumption_id": "A-001",
+        "description": "The artifact identity mechanism is available and trustworthy",
+        "status": "satisfied"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "E-001",
+        "evidence_type": "software_provenance",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "provenance_digest": {
+          "algorithm": "sha-256",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "source": "test-provenance-source",
+        "observed_at": "2026-09-24T00:00:00Z"
+      }
+    ],
+    "validation": {
+      "validation_id": "V-001",
+      "method": "artifact-digest-validation",
+      "method_version": "1.0",
+      "performed_at": "2026-09-24T00:00:00Z",
+      "result": "satisfied",
+      "verifier_reference": "test-verifier-001"
+    },
+    "proof": {
+      "proof_id": "P-001",
+      "obligations": [
+        {
+          "obligation_id": "PO-001",
+          "description": "The observed artifact digest matches the declared artifact identity",
+          "status": "satisfied",
+          "evidence_refs": [
+            "E-001"
+          ]
+        }
+      ],
+      "falsification": {
+        "status": "passed",
+        "method": "artifact-digest-mutation-test",
+        "tested_at": "2026-09-24T00:00:00Z",
+        "conditions": [
+          "Modified artifact digest must not satisfy the integrity property"
+        ]
+      }
+    },
+    "validity": {
+      "issued_at": "2026-09-24T00:00:00Z",
+      "expires_at": "2026-09-25T00:00:00Z",
+      "freshness_seconds": 86400
+    },
+    "dependencies": [
+      {
+        "dependency_id": "artifact-validator-001",
+        "dependency_type": "validation_method",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        },
+        "version": "1.0"
+      }
+    ],
+    "issuer": {
+      "issuer_id": "test-issuer-001",
+      "trust_domain": "argus-test-domain"
+    },
+    "trust": {
+      "trust_anchor_id": "test-anchor-001",
+      "policy_id": "test-policy-001"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "key_id": "test-key-001",
+      "canonicalization": "JCS-RFC8785",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    },
+    "metadata": {
+      "test_vector": true,
+      "purpose": "negative-verification"
+    }
+  },
+  "verification_policy": {
+    "policy_id": "test-policy-001",
+    "required_signature_algorithm": "Ed25519",
+    "require_valid_signature": true,
+    "require_freshness": true,
+    "require_all_proof_obligations": true
+  },
+  "expected_result": {
+    "status": "INVALID",
+    "reason": "SIGNATURE_INVALID"
+  }
+}
