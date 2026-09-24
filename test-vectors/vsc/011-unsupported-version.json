@@ -1,0 +1,50 @@
+{
+  "vector_id": "VSC-011",
+  "description": "A verifier rejects a claim using a mandatory unsupported VSC schema version.",
+  "expected_result": "UNSUPPORTED",
+  "failure_classification": "UNSUPPORTED_VERSION",
+  "claim": {
+    "schema_version": "vsc-9.0",
+    "claim_id": "claim-011",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-011",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-011"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [],
+    "validation": {
+      "validation_id": "validation-011",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-011",
+      "obligations": []
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-011"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-011",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
