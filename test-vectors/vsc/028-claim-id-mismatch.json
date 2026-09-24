@@ -1,0 +1,68 @@
+{
+  "vector_id": "VSC-028",
+  "description": "A verifier rejects a claim when the claim identifier referenced by the verification context does not match the identifier carried by the claim.",
+  "expected_result": "INVALID",
+  "failure_classification": "CLAIM_ID_MISMATCH",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-028-A",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-028",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-028"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-028",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "2828282828282828282828282828282828282828282828282828282828282828"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-028",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-24T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-028",
+      "obligations": [
+        {
+          "obligation_id": "obligation-028-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-24T10:00:00Z",
+      "expires_at": "2026-10-24T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-028"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-028",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "claim_id": "claim-028-B"
+  }
+}
