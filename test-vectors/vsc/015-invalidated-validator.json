@@ -1,0 +1,87 @@
+{
+  "vector_id": "VSC-015",
+  "description": "A previously verified claim requires revalidation after the validator dependency changes.",
+  "expected_result": "INVALID",
+  "failure_classification": "DEPENDENCY_CHANGED",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-015",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-015",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-015"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-015",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "6666666666666666666666666666666666666666666666666666666666666666"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-015",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-015",
+      "obligations": [
+        {
+          "obligation_id": "obligation-015-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "dependencies": [
+      {
+        "dependency_id": "validator-015",
+        "dependency_type": "validated_by",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "7777777777777777777777777777777777777777777777777777777777777777"
+        }
+      }
+    ],
+    "issuer": {
+      "issuer_id": "issuer-test-015"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-015",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "current_dependencies": [
+      {
+        "dependency_id": "validator-015",
+        "dependency_type": "validated_by",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "8888888888888888888888888888888888888888888888888888888888888888"
+        }
+      }
+    ]
+  }
+}
