@@ -1,0 +1,74 @@
+{
+  "vector_id": "VSC-012",
+  "description": "A claim is rejected when its issuer cannot be anchored to a trusted verification authority.",
+  "expected_result": "INVALID",
+  "failure_classification": "TRUST_ANCHOR_INVALID",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-012",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-012",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-012"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-012",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "3333333333333333333333333333333333333333333333333333333333333333"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-012",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-012",
+      "obligations": [
+        {
+          "obligation_id": "obligation-012-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "untrusted-issuer-012",
+      "trust_anchor_id": "unknown-root-012"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "unknown-key-012",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "trusted_issuers": [
+      "trusted-issuer-001"
+    ],
+    "trusted_trust_anchors": [
+      "trusted-root-001"
+    ]
+  }
+}
