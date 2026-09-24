@@ -1,0 +1,68 @@
+{
+  "vector_id": "VSC-020",
+  "description": "A verifier rejects a claim whose issuance timestamp is later than the verification evaluation time.",
+  "expected_result": "INVALID",
+  "failure_classification": "TEMPORAL_VALIDITY_FAILURE",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-020",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-020",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-020"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-020",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "1212121212121212121212121212121212121212121212121212121212121212"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-020",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-25T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-020",
+      "obligations": [
+        {
+          "obligation_id": "obligation-020-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-25T10:00:00Z",
+      "expires_at": "2026-10-25T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-020"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-020",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  },
+  "verification_context": {
+    "evaluated_at": "2026-09-23T10:00:00Z"
+  }
+}
