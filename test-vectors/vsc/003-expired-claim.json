@@ -1,0 +1,131 @@
+{
+  "vector_id": "VSC-TV-003",
+  "description": "Validly structured VSC whose validity period has expired",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-003",
+    "claim_type": "software-integrity",
+    "subject": {
+      "subject_id": "sha256:example-subject-003",
+      "subject_type": "software_artifact",
+      "identity_method": "artifact_digest"
+    },
+    "property": {
+      "property_id": "artifact-integrity",
+      "description": "The referenced software artifact matches the declared artifact digest",
+      "profile": "software-integrity",
+      "version": "1.0"
+    },
+    "scope": {
+      "included": [
+        "software-artifact:example-003"
+      ],
+      "excluded": [],
+      "environment": "test"
+    },
+    "assumptions": [
+      {
+        "assumption_id": "A-003",
+        "description": "The artifact identity mechanism is available and trustworthy",
+        "status": "satisfied"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "E-003",
+        "evidence_type": "software_provenance",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "provenance_digest": {
+          "algorithm": "sha-256",
+          "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "source": "test-provenance-source",
+        "observed_at": "2026-09-20T00:00:00Z"
+      }
+    ],
+    "validation": {
+      "validation_id": "V-003",
+      "method": "artifact-digest-validation",
+      "method_version": "1.0",
+      "performed_at": "2026-09-20T00:00:00Z",
+      "result": "satisfied",
+      "verifier_reference": "test-verifier-003"
+    },
+    "proof": {
+      "proof_id": "P-003",
+      "obligations": [
+        {
+          "obligation_id": "PO-003",
+          "description": "The observed artifact digest matches the declared artifact identity",
+          "status": "satisfied",
+          "evidence_refs": [
+            "E-003"
+          ]
+        }
+      ],
+      "falsification": {
+        "status": "passed",
+        "method": "artifact-digest-mutation-test",
+        "tested_at": "2026-09-20T00:00:00Z",
+        "conditions": [
+          "Modified artifact digest must not satisfy the integrity property"
+        ]
+      }
+    },
+    "validity": {
+      "issued_at": "2026-09-20T00:00:00Z",
+      "expires_at": "2026-09-21T00:00:00Z",
+      "freshness_seconds": 86400
+    },
+    "dependencies": [
+      {
+        "dependency_id": "artifact-validator-003",
+        "dependency_type": "validation_method",
+        "content_digest": {
+          "algorithm": "sha-256",
+          "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        },
+        "version": "1.0"
+      }
+    ],
+    "issuer": {
+      "issuer_id": "test-issuer-003",
+      "trust_domain": "argus-test-domain"
+    },
+    "trust": {
+      "trust_anchor_id": "test-anchor-003",
+      "policy_id": "test-policy-003"
+    },
+    "signature": {
+      "algorithm": "Ed25519",
+      "key_id": "test-key-003",
+      "canonicalization": "JCS-RFC8785",
+      "value": "TEST-SIGNATURE-003"
+    },
+    "metadata": {
+      "test_vector": true,
+      "purpose": "temporal-verification"
+    }
+  },
+  "verification_policy": {
+    "policy_id": "test-policy-003",
+    "require_valid_signature": true,
+    "require_freshness": true,
+    "require_all_proof_obligations": true
+  },
+  "verification_context": {
+    "evaluated_at": "2026-09-24T00:00:00Z",
+    "signature_status": "valid",
+    "trust_status": "trusted",
+    "subject_binding": "valid",
+    "evidence_integrity": "valid",
+    "proof_obligations": "satisfied"
+  },
+  "expected_result": {
+    "status": "EXPIRED",
+    "reason": "CLAIM_EXPIRED"
+  }
+}
