@@ -1,0 +1,65 @@
+{
+  "vector_id": "VSC-017",
+  "description": "A verifier rejects a claim that declares an unsupported mandatory signature algorithm.",
+  "expected_result": "UNSUPPORTED",
+  "failure_classification": "UNSUPPORTED_CRYPTOGRAPHIC_ALGORITHM",
+  "claim": {
+    "schema_version": "vsc-1.0",
+    "claim_id": "claim-017",
+    "claim_type": "security_property",
+    "subject": {
+      "subject_id": "workload-017",
+      "subject_type": "cloud_workload"
+    },
+    "property": {
+      "property_id": "ARGUS.SECURITY.RUNTIME_VALIDATION",
+      "description": "The workload satisfies the declared runtime security property."
+    },
+    "scope": {
+      "environment": "production",
+      "region": "uk",
+      "resources": [
+        "workload-017"
+      ]
+    },
+    "assumptions": [],
+    "evidence": [
+      {
+        "evidence_id": "evidence-017",
+        "evidence_type": "runtime_telemetry",
+        "digest": {
+          "algorithm": "sha-256",
+          "value": "9999999999999999999999999999999999999999999999999999999999999999"
+        }
+      }
+    ],
+    "validation": {
+      "validation_id": "validation-017",
+      "method": "runtime_validation",
+      "validated_at": "2026-09-23T10:00:00Z"
+    },
+    "proof": {
+      "proof_id": "proof-017",
+      "obligations": [
+        {
+          "obligation_id": "obligation-017-1",
+          "description": "Required runtime security condition was satisfied.",
+          "satisfied": true
+        }
+      ]
+    },
+    "validity": {
+      "issued_at": "2026-09-23T10:00:00Z",
+      "expires_at": "2026-10-23T10:00:00Z"
+    },
+    "issuer": {
+      "issuer_id": "issuer-test-017"
+    },
+    "signature": {
+      "algorithm": "ARGUS-UNSUPPORTED-SIGNATURE-ALGORITHM",
+      "canonicalization": "JCS-RFC8785",
+      "key_id": "test-key-017",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}
